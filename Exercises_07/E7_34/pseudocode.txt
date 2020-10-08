@@ -1,0 +1,5 @@
+prompt user to enter a string
+using scanner, store it in string variable
+turn string into a char array
+sort char array
+turn sorted char array into string, then return
