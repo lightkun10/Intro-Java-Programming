@@ -1,0 +1,3 @@
+Store total of each employee's workhours
+Make an array to store the index of sorted workhours
+

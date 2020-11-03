@@ -1,0 +1,7 @@
+Sum elements row by row 
+
+Write a method that returns the sum of all the elements 
+in a specified row in a matrix.
+
+Write a test program that reads a 3-by-4 matrix and 
+displays the sum of each row.
