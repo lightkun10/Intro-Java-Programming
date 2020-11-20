@@ -1,0 +1,13 @@
+Your program reads the input as follows: 
+It first reads two integers n and limit, 
+where n indicates the number of banks and 
+limit is the minimum total assets for keeping 
+a bank safe. It then reads n lines that 
+describe the information for n banks with 
+IDs from 0 to n−1.
+
+=========================================
+> How many banks?
+> 5
+> Limit safety?
+> 201

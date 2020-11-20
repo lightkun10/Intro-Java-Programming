@@ -24,40 +24,129 @@ public class E8_14 {
     }
 
     public static void exploreMatrix(int[][] m) {
+        
         // Find rows
-        int[][] sameRowColDiag = new int[4][2];
+        int[][] sameRow = new int[m[0].length][2];
 
         for (int i = 0; i < m.length; i++) {
-            // int sameRow = 0;
             for (int j = 0; j < m[i].length; j++) {
                 if (m[i][j] == 0) {
-                    // int v = m[i][j];
-                    sameRowColDiag[i][0]++;
+                    sameRow[i][0]++;
                 }
                 else if (m[i][j] == 1) {
-                    sameRowColDiag[i][1]++;
+                    sameRow[i][1]++;
                 }
             }
         }
-        checkRow(sameRowColDiag, m[0].length);
+        checkRow(sameRow, m[0].length);
 
-        // Find columns FIXME
+        // Find columns
+        int[][] sameCol = new int[m[0].length][2];
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[i].length; j++) {
+                if (m[j][i] == 0) {
+                    sameCol[i][0]++;
+                }
+                else if (m[j][i] == 1) {
+                    sameCol[i][1]++;
+                }
+            }
+        }
+        checkCol(sameCol, m[0].length);
+
+        // Find major diagonals
+        int[][] sameMajDiag = new int[m[0].length][2];
+        for (int i = 0; i < 1; i++) {
+            for (int j = 0; j < m[0].length; j++) {
+                if (m[j][j] == 0) {
+                    sameMajDiag[i][0]++;
+                }
+                else if (m[j][j] == 1) {
+                    sameMajDiag[i][1]++;
+                }
+            }
+        }
+        checkMajDiag(sameMajDiag, m[0].length);
+
+        // Find sub-diagonals
+        int[][] sameSubDiag = new int[m[0].length][2];
+        // 03 12 21 30
+        for (int i = 0, j = (m[0].length-1); j >= 0; i++, j--) {
+            if (m[i][j] == 0) {
+                sameSubDiag[i][0]++;
+            }
+            else if (m[i][j] == 1) {
+                sameSubDiag[i][1]++;
+            }
+        }
+        checkSubDiag(sameSubDiag, m[0].length);
     }
 
     public static void checkRow(int[][] sameRows, int matrixLength) {
         int sameRow = 0;
         for (int i = 0; i < matrixLength; i++) {
             if (sameRows[i][0] == matrixLength) {
-                System.out.println("All " + 0 + "s on row " + i);
+                System.out.println("All " + 0 + "s on row " + (i+1));
                 sameRow++;
             }
             else if (sameRows[i][1] == matrixLength) {
-                System.out.println("All " + 1 + "s on row " + i);
+                System.out.println("All " + 1 + "s on row " + (i+1));
                 sameRow++;
             }
         }
         if (sameRow <= 0) {
             System.out.println("No same numbers on a row");
+        }
+    }
+
+    public static void checkCol(int[][] sameCols, int matrixLength) {
+        int sameCol = 0;
+        for (int i = 0; i < matrixLength; i++) {
+            if (sameCols[i][0] == matrixLength) {
+                System.out.println("All " + 0 + "s on column " + (i+1));
+                sameCol++;
+            }
+            else if (sameCols[i][1] == matrixLength) {
+                System.out.println("All " + 1 + "s on column " + (i+1));
+                sameCol++;
+            }
+        }
+        if (sameCol <= 0) {
+            System.out.println("No same numbers on a column");
+        }
+    }
+
+    public static void checkMajDiag(int[][] sameMajDiags, int matrixLength) {
+        int sameMajDiag = 0;
+        for (int i = 0; i < matrixLength; i++) {
+            if (sameMajDiags[i][0] == matrixLength) {
+                System.out.println("All " + 0 + "s on major diagonal");
+                sameMajDiag++;
+            }
+            else if (sameMajDiags[i][1] == matrixLength) {
+                System.out.println("All " + 1 + "s on major diagonal");
+                sameMajDiag++;
+            }
+        }
+        if (sameMajDiag <= 0) {
+            System.out.println("No same numbers on the major diagonal");
+        }
+    }
+
+    public static void checkSubDiag(int[][] sameSubDiags, int matrixLength) {
+        int sameSubDiag = 0;
+        for (int i = 0; i < matrixLength; i++) {
+            if (sameSubDiags[i][0] == matrixLength) {
+                System.out.println("All " + 0 + "s on sub-diagonal");
+                sameSubDiag++;
+            }
+            else if (sameSubDiags[i][1] == matrixLength) {
+                System.out.println("All " + 1 + "s on sub-diagonal");
+                sameSubDiag++;
+            }
+        }
+        if (sameSubDiag <= 0) {
+            System.out.println("No same numbers on the sub-diagonal");
         }
     }
 

@@ -1,6 +1,5 @@
 package E8_8;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class E8_08 {
